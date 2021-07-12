@@ -5,7 +5,7 @@ import Main from "./Main/Main.js";
 import styles from "../globalStyles.css";
 //import Navbar from "./NavBar/NavBar.js";
 //import { MapContainer } from "./MapContainer.js";
-import Map from "./Map.js";
+//import Map from "./Map.js";
 
 const Home = ({ ...props }) => {
   return (
@@ -14,7 +14,7 @@ const Home = ({ ...props }) => {
         <div className={styles.navBottom}>
           <SearchCountry />
           <FilterButton />
-          <Map />
+          {/* <Map /> */}
         </div>
         <Main />
       </div>

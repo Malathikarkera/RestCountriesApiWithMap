@@ -3,8 +3,8 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Dasboard from "./components/dashboard";
 import CountryContextProvider from "./context/globalState";
 import useTheme from "./customHooks/useTheme";
-import { useLoadScript } from "@react-google-maps/api";
-import { Map } from "./components/Map.js";
+//import { useLoadScript } from "@react-google-maps/api";
+//import { Map } from "./components/Map.js";
 
 const CountryDetails = React.lazy(() =>
   import("../CountryDetails/CountryDetails")
@@ -12,9 +12,9 @@ const CountryDetails = React.lazy(() =>
 
 const App = () => {
   const [themeValue, setThemeValue] = useTheme();
-  const { isLoaded } = useLoadScript({
-    googleMapsApiKey: "" // Add your API key
-  });
+  // const { isLoaded } = useLoadScript({
+  //   googleMapsApiKey: "" // Add your API key
+  // });
   React.useLayoutEffect(() => {
     window.localStorage.setItem("theme", JSON.stringify(themeValue));
   }, [themeValue]);
@@ -40,12 +40,12 @@ const App = () => {
                 <Route
                   path={`/:code`}
                   render={(props) => (
-                    // <CountryDetails
-                    //   {...props}
-                    //   themeValue={themeValue}
-                    //   handleThemeChange={setThemeValue}
-                    // />
-                    <Map />
+                    <CountryDetails
+                      {...props}
+                      themeValue={themeValue}
+                      handleThemeChange={setThemeValue}
+                    />
+                    //<Map />
                   )}
                 />
               </React.Suspense>
